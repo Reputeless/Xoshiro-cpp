@@ -2,6 +2,8 @@
 **Xoshiro-cpp** is a header-only pseudorandom number generator library for modern C++.  
 Based on **David Blackman and Sebastiano Vigna's [xoshiro generators](http://prng.di.unimi.it/)**.
 
+![](xoshiro-cpp.png)
+
 ## Features
 - Meets the **`std::uniform_random_bit_generator` concept** (C++20)
   - Works with `std::uniform_int_distribution`, `std::shuffle` and the other standard library functions
