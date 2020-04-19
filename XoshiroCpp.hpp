@@ -79,11 +79,13 @@ namespace XoshiroCpp
 
 		constexpr void deserialize(state_type state) noexcept;
 
+		[[nodiscard]]
 		friend bool operator ==(const SplitMix64& lhs, const SplitMix64& rhs) noexcept
 		{
 			return (lhs.m_state == rhs.m_state);
 		}
 
+		[[nodiscard]]
 		friend bool operator !=(const SplitMix64& lhs, const SplitMix64& rhs) noexcept
 		{
 			return (lhs.m_state != rhs.m_state);
@@ -136,11 +138,13 @@ namespace XoshiroCpp
 
 		constexpr void deserialize(state_type state) noexcept;
 
+		[[nodiscard]]
 		friend bool operator ==(const Xoshiro256Plus& lhs, const Xoshiro256Plus& rhs) noexcept
 		{
 			return (lhs.m_state == rhs.m_state);
 		}
 
+		[[nodiscard]]
 		friend bool operator !=(const Xoshiro256Plus& lhs, const Xoshiro256Plus& rhs) noexcept
 		{
 			return (lhs.m_state != rhs.m_state);
@@ -193,11 +197,13 @@ namespace XoshiroCpp
 
 		constexpr void deserialize(state_type state) noexcept;
 
+		[[nodiscard]]
 		friend bool operator ==(const Xoshiro256PlusPlus& lhs, const Xoshiro256PlusPlus& rhs) noexcept
 		{
 			return (lhs.m_state == rhs.m_state);
 		}
 
+		[[nodiscard]]
 		friend bool operator !=(const Xoshiro256PlusPlus& lhs, const Xoshiro256PlusPlus& rhs) noexcept
 		{
 			return (lhs.m_state != rhs.m_state);
@@ -250,11 +256,13 @@ namespace XoshiroCpp
 
 		constexpr void deserialize(state_type state) noexcept;
 
+		[[nodiscard]]
 		friend bool operator ==(const Xoshiro256StarStar& lhs, const Xoshiro256StarStar& rhs) noexcept
 		{
 			return (lhs.m_state == rhs.m_state);
 		}
 
+		[[nodiscard]]
 		friend bool operator !=(const Xoshiro256StarStar& lhs, const Xoshiro256StarStar& rhs) noexcept
 		{
 			return (lhs.m_state != rhs.m_state);
