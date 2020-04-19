@@ -7,6 +7,8 @@ Based on **David Blackman and Sebastiano Vigna's [xoshiro generators](http://prn
   - Works with `std::uniform_int_distribution`, `std::shuffle` and the other standard library functions
 - Mostly **`constexpr`** in C++17
 - Serialize / deserialize
+- Utility function `double DoubleFromBits(uint64 v);`
+  - Converts given uint64 value `v` into a 64-bit floating point value in the range of [0.0, 1.0)
 
 PRNG | Output bits | Period | Footprint
 --|--|--|--
@@ -110,6 +112,35 @@ int main()
 9
 1
 0
+```
+
+----
+
+
+```C++
+# include <iostream>
+# include "XoshiroCpp.hpp"
+
+int main()
+{
+    using namespace XoshiroCpp;
+
+    const std::uint64_t seed = 12345;
+
+    Xoshiro256PlusPlus rng(seed);
+
+    for (int i = 0; i < 5; ++i)
+    {
+        std::cout << DoubleFromBits(rng()) << '\n';
+    }
+}
+```
+```
+0.553048
+0.204956
+0.0851232
+0.17553
+0.265614
 ```
 
 ----
