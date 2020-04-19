@@ -1,12 +1,19 @@
 # Xoshiro-cpp <a href="https://github.com/Reputeless/Xoshiro-cpp/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-4aaa4a"></a> <a href="https://github.com/sponsors/Reputeless"><img src="https://img.shields.io/badge/funding-GitHub_Sponsors-ea4aaa"></a>
 **Xoshiro-cpp** is a header-only pseudorandom number generator library for modern C++.  
-Based on David Blackman and Sebastiano Vigna's [xoshiro generators](http://prng.di.unimi.it/).
+Based on **David Blackman and Sebastiano Vigna's [xoshiro generators](http://prng.di.unimi.it/)**.
 
 ## Features
-- Meets the `std::uniform_random_bit_generator` concept (C++20)
+- Meets the **`std::uniform_random_bit_generator` concept** (C++20)
   - Works with `std::uniform_int_distribution`, `std::shuffle` and the other standard library functions
-- Mostly `constexpr` in C++17
+- Mostly **`constexpr`** in C++17
 - Serialize / deserialize
+
+PRNG | Output bits | Period | Footprint
+--|--|--|--
+ SplitMix64   | 64 bits | 2^64    | 8 bytes
+ xoshiro256+  | 64 bits | 2^256-1 | 32 bytes
+ xoshiro256++ | 64 bits | 2^256-1 | 32 bytes
+ xoshiro256** | 64 bits | 2^256-1 | 32 bytes
 
 ## Examples
 
