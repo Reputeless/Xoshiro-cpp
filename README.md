@@ -209,9 +209,14 @@ true
 - [x] xoshiro256+
 - [x] xoshiro256++
 - [x] xoshiro256** 
+- [ ] xoroshiro128+
+- [ ] xoroshiro128++
+- [ ] xoroshiro128**
 - [ ] xoshiro128+
 - [ ] xoshiro128++
 - [ ] xoshiro128**
+- [ ] xoroshiro64*
+- [ ] xoroshiro64**
 
 ## License
 Xoshiro-cpp is distributed under the MIT license.
