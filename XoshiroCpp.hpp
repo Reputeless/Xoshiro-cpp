@@ -28,6 +28,7 @@
 # pragma once
 # include <cstdint>
 # include <array>
+# include <limits>
 # include <type_traits>
 # if __has_cpp_attribute(nodiscard) >= 201907L
 #	define SIV_NODISCARD_CXX20 [[nodiscard]]
