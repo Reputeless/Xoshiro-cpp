@@ -45,18 +45,18 @@ int main()
 
 int main()
 {
-	using namespace XoshiroCpp;
+    using namespace XoshiroCpp;
 
-	const std::uint64_t seed = 12345;
+    const std::uint64_t seed = 12345;
 
-	Xoshiro256PlusPlus rng(seed);
+    Xoshiro256PlusPlus rng(seed);
 
-	std::uniform_int_distribution<int> dist(1, 6);
+    std::uniform_int_distribution<int> dist(1, 6);
 
-	for (int i = 0; i < 5; ++i)
-	{
-		std::cout << dist(rng) << '\n';
-	}
+    for (int i = 0; i < 5; ++i)
+    {
+        std::cout << dist(rng) << '\n';
+    }
 }
 ```
 ```
@@ -107,8 +107,61 @@ int main()
 
 ----
 
+```C++
+# include <iostream>
+# include "XoshiroCpp.hpp"
 
+int main()
+{
+    using namespace XoshiroCpp;
 
+    // This example seed sequence { 111, 222, 333, 444 } is poorly
+    // distributed (has a lot of '0' bits) and it is not suitable
+    // for directly use in the generator's internal state.
+    // SplitMix64 PRNG can be used to increase entropy.
+    const Xoshiro256Plus::state_type initialStateA =
+    {
+        SplitMix64(111)(),
+        SplitMix64(222)(),
+        SplitMix64(333)(),
+        SplitMix64(444)(),
+    };
+
+    Xoshiro256PlusPlus rngA(initialStateA);
+
+    for (int i = 0; i < 3; ++i)
+    {
+        std::cout << rngA() << '\n';
+    }
+
+    const Xoshiro256Plus::state_type state = rngA.serialize();
+
+    Xoshiro256PlusPlus rngB(state);
+
+    for (int i = 0; i < 3; ++i)
+    {
+        std::cout << std::boolalpha << (rngA() == rngB()) << '\n';
+    }
+
+    rngB.deserialize(initialStateA);
+
+    for (int i = 0; i < 3; ++i)
+    {
+        std::cout << rngB() << '\n';
+    }
+}
+```
+```
+9228892280983206813
+11892737616047535485
+12786908792686548306
+true
+true
+true
+9228892280983206813
+11892737616047535485
+12786908792686548306
+```
 
 ## Roadmap
 
