@@ -31,9 +31,9 @@
 # include <limits>
 # include <type_traits>
 # if __has_cpp_attribute(nodiscard) >= 201907L
-#	define SIV_NODISCARD_CXX20 [[nodiscard]]
+#	define XOSHIROCPP_NODISCARD_CXX20 [[nodiscard]]
 # else
-#	define SIV_NODISCARD_CXX20
+#	define XOSHIROCPP_NODISCARD_CXX20
 # endif
 
 namespace XoshiroCpp
@@ -58,8 +58,8 @@ namespace XoshiroCpp
 
 		using state_type	= std::uint64_t;	
 		using result_type	= std::uint64_t;
-
-		SIV_NODISCARD_CXX20
+		
+		XOSHIROCPP_NODISCARD_CXX20
 		explicit constexpr SplitMix64(state_type state = DefaultSeed) noexcept;
 
 		constexpr result_type operator()() noexcept;
@@ -108,10 +108,10 @@ namespace XoshiroCpp
 		using state_type	= std::array<std::uint64_t, 4>;
 		using result_type	= std::uint64_t;
 
-		SIV_NODISCARD_CXX20
+		XOSHIROCPP_NODISCARD_CXX20
 		explicit constexpr Xoshiro256Plus(std::uint64_t seed = DefaultSeed) noexcept;
 
-		SIV_NODISCARD_CXX20
+		XOSHIROCPP_NODISCARD_CXX20
 		explicit constexpr Xoshiro256Plus(state_type state) noexcept;
 
 		constexpr result_type operator()() noexcept;
@@ -167,10 +167,10 @@ namespace XoshiroCpp
 		using state_type	= std::array<std::uint64_t, 4>;
 		using result_type	= std::uint64_t;
 
-		SIV_NODISCARD_CXX20
+		XOSHIROCPP_NODISCARD_CXX20
 		explicit constexpr Xoshiro256PlusPlus(std::uint64_t seed = DefaultSeed) noexcept;
 
-		SIV_NODISCARD_CXX20
+		XOSHIROCPP_NODISCARD_CXX20
 		explicit constexpr Xoshiro256PlusPlus(state_type state) noexcept;
 
 		constexpr result_type operator()() noexcept;
@@ -226,10 +226,10 @@ namespace XoshiroCpp
 		using state_type	= std::array<std::uint64_t, 4>;
 		using result_type	= std::uint64_t;
 
-		SIV_NODISCARD_CXX20
+		XOSHIROCPP_NODISCARD_CXX20
 		explicit constexpr Xoshiro256StarStar(std::uint64_t seed = DefaultSeed) noexcept;
 
-		SIV_NODISCARD_CXX20
+		XOSHIROCPP_NODISCARD_CXX20
 		explicit constexpr Xoshiro256StarStar(state_type state) noexcept;
 
 		constexpr result_type operator()() noexcept;
