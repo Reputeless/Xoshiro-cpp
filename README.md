@@ -14,10 +14,16 @@ Based on **David Blackman and Sebastiano Vigna's [xoshiro/xoroshiro generators](
 
 PRNG | Output bits | Period | Footprint
 --|--|--|--
- SplitMix64   | 64 bits | 2^64    | 8 bytes
- xoshiro256+  | 64 bits | 2^256-1 | 32 bytes
- xoshiro256++ | 64 bits | 2^256-1 | 32 bytes
- xoshiro256** | 64 bits | 2^256-1 | 32 bytes
+SplitMix64   | 64 bits | 2^64    | 8 bytes
+xoshiro256+  | 64 bits | 2^256-1 | 32 bytes
+xoshiro256++ | 64 bits | 2^256-1 | 32 bytes
+xoshiro256** | 64 bits | 2^256-1 | 32 bytes
+xoroshiro128+  | 64 bits | 2^128-1 | 16 bytes
+xoroshiro128++ | 64 bits | 2^128-1 | 16 bytes
+xoroshiro128** | 64 bits | 2^128-1 | 16 bytes
+xoshiro128+  | 32 bits | 2^128-1 | 16 bytes
+xoshiro128++ | 32 bits | 2^128-1 | 16 bytes
+xoshiro128** | 32 bits | 2^128-1 | 16 bytes
 
 ## Examples
 
@@ -161,10 +167,10 @@ int main()
     // SplitMix64 PRNG can be used to increase entropy.
     const Xoshiro256Plus::state_type initialStateA =
     {
-        SplitMix64(111)(),
-        SplitMix64(222)(),
-        SplitMix64(333)(),
-        SplitMix64(444)(),
+        SplitMix64{ 111 }(),
+        SplitMix64{ 222 }(),
+        SplitMix64{ 333 }(),
+        SplitMix64{ 444 }(),
     };
 
     Xoshiro256PlusPlus rngA(initialStateA);
@@ -209,12 +215,12 @@ true
 - [x] xoshiro256+
 - [x] xoshiro256++
 - [x] xoshiro256** 
-- [ ] xoroshiro128+
-- [ ] xoroshiro128++
-- [ ] xoroshiro128**
-- [ ] xoshiro128+
-- [ ] xoshiro128++
-- [ ] xoshiro128**
+- [x] xoroshiro128+
+- [x] xoroshiro128++
+- [x] xoroshiro128**
+- [x] xoshiro128+
+- [x] xoshiro128++
+- [x] xoshiro128**
 - [ ] xoroshiro64*
 - [ ] xoroshiro64**
 
